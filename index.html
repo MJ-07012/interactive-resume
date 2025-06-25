@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marlon Jordan - Interactive Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #3b82f6; /* blue-500 */
+            border: 4px solid #f0f9ff; /* sky-50 */
+            z-index: 10;
+        }
+        .timeline-line {
+            position: absolute;
+            left: -21px;
+            top: 10px;
+            bottom: -10px;
+            width: 2px;
+            background-color: #d1d5db; /* gray-300 */
+        }
+        .job-details {
+            transition: max-height 0.7s ease-in-out, opacity 0.5s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .job-details.open {
+            max-height: 1000px; /* Adjust as needed */
+            opacity: 1;
+        }
+        .chevron {
+            transition: transform 0.3s ease-in-out;
+        }
+        .open .chevron {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-sky-50 text-gray-800">
+
+    <div class="max-w-5xl mx-auto my-8 sm:my-12 p-4 sm:p-8">
+        <!-- Header Section -->
+        <header class="text-center mb-12">
+            <h1 class="text-5xl md:text-6xl font-bold text-gray-900 tracking-tight">Marlon Jordan</h1>
+            <h2 class="text-2xl text-blue-600 font-medium mt-2">Senior Desktop Support Analyst</h2>
+            <div class="mt-6 flex justify-center items-center flex-wrap gap-x-6 gap-y-2 text-gray-600">
+                <a href="tel:646-249-6025" class="flex items-center hover:text-blue-600 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    (646)-249-6025
+                </a>
+                <a href="mailto:Marlon.Jordan21@gmail.com" class="flex items-center hover:text-blue-600 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    Marlon.Jordan21@gmail.com
+                </a>
+                <a href="https://g.co/gemini/share/db9a781a2093" target="_blank" rel="noopener noreferrer" class="flex items-center hover:text-blue-600 transition-colors">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.72"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.72-1.72"></path></svg>
+                    Portfolio Link
+                </a>
+            </div>
+        </header>
+
+        <!-- Why I'm a Fit Section -->
+        <section class="mb-12">
+            <h3 class="text-3xl font-bold text-gray-900 mb-4 text-center">Why I'm the Perfect Fit for RBC</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow border-l-4 border-blue-500">
+                    <h4 class="font-bold text-lg text-blue-700 mb-2">Executive & VIP Support</h4>
+                    <p class="text-gray-700">Over 4 years of dedicated experience providing white-glove technical support to C-Suite executives and their teams in a high-stakes, fast-paced financial environment.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow border-l-4 border-blue-500">
+                    <h4 class="font-bold text-lg text-blue-700 mb-2">Technical Proficiency</h4>
+                    <p class="text-gray-700">Expertise in core RBC technologies including ServiceNow, Windows 11/10, Active Directory, M365 Suite, and remote assistance tools to ensure seamless end-user experience.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow border-l-4 border-blue-500">
+                    <h4 class="font-bold text-lg text-blue-700 mb-2">Problem-Solving & Collaboration</h4>
+                    <p class="text-gray-700">Strong analytical skills to troubleshoot complex issues from networking to personal devices, with a proven history of collaborating on cross-functional enterprise initiatives.</p>
+                </div>
+            </div>
+        </section>
+
+        <main class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <!-- Left Column: Experience -->
+            <div class="lg:col-span-2">
+                <h3 class="text-3xl font-bold text-gray-900 mb-8 border-b-2 border-blue-500 pb-2">Work Experience</h3>
+                <div class="relative pl-8">
+                    <!-- Timeline Line -->
+                    <div class="timeline-line"></div>
+
+                    <!-- Job 1 -->
+                    <div class="mb-10 relative timeline-item job-item">
+                        <div class="job-header cursor-pointer p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h4 class="text-xl font-semibold text-blue-700">Product Operations Specialist</h4>
+                                    <p class="text-gray-600">Bloomberg LP</p>
+                                    <p class="text-sm text-gray-500 mt-1">Aug 2021 - Nov 2024</p>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron text-gray-500"><path d="m6 9 6 6 6-6"></path></svg>
+                            </div>
+                        </div>
+                        <div class="job-details bg-white rounded-b-lg p-6 shadow-inner">
+                            <ul class="list-disc list-inside space-y-3 text-gray-700">
+                                <li>Oversaw the complete lifecycle of end-user laptops in a fast-paced financial setting, from procurement to secure retirement.</li>
+                                <li>Provided timely support for the Microsoft Office Suite and other productivity applications, resolving issues to ensure business continuity.</li>
+                                <li>Utilized ServiceNow to meticulously track, manage, and resolve all inbound technical incidents and service requests.</li>
+                                <li>Collaborated on cross-functional initiatives, managing deliverables to implement changes in the end-user environment.</li>
+                                <li>Managed endpoint configurations and security policies for Windows devices, contributing to a secure and standardized user experience.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Job 2 -->
+                    <div class="mb-10 relative timeline-item job-item">
+                        <div class="job-header cursor-pointer p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                             <div class="flex justify-between items-center">
+                                <div>
+                                    <h4 class="text-xl font-semibold text-blue-700">Technical Support Lead Executive</h4>
+                                    <p class="text-gray-600">Bloomberg LP</p>
+                                    <p class="text-sm text-gray-500 mt-1">May 2017 - Aug 2021</p>
+                                </div>
+                               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron text-gray-500"><path d="m6 9 6 6 6-6"></path></svg>
+                            </div>
+                        </div>
+                        <div class="job-details bg-white rounded-b-lg p-6 shadow-inner">
+                            <ul class="list-disc list-inside space-y-3 text-gray-700">
+                                <li>Delivered high-quality, dedicated technical support to C-Suite executives, business management, and other firm VIPs with a professional and empathic approach.</li>
+                                <li>Developed creative technical solutions for personal technology, including home networks, mobile devices, and AV systems, to meet executive needs.</li>
+                                <li>Followed established ITIL processes for incident management to resolve critical technical issues related to Windows, networking, printing, and telephony, minimizing disruption for leadership.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Job 3 -->
+                    <div class="mb-10 relative timeline-item job-item">
+                        <div class="job-header cursor-pointer p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                             <div class="flex justify-between items-center">
+                                <div>
+                                    <h4 class="text-xl font-semibold text-blue-700">Senior IT Support Engineer</h4>
+                                    <p class="text-gray-600">Bloomberg LP</p>
+                                    <p class="text-sm text-gray-500 mt-1">May 2013 - May 2017</p>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron text-gray-500"><path d="m6 9 6 6 6-6"></path></svg>
+                            </div>
+                        </div>
+                        <div class="job-details bg-white rounded-b-lg p-6 shadow-inner">
+                            <ul class="list-disc list-inside space-y-3 text-gray-700">
+                                <li>Managed user accounts, groups, and permissions within Active Directory and deployed software to Windows environments using SCCM.</li>
+                                <li>Served as an escalation point for complex issues related to Windows OS, applications, printing, and network services (DNS/DHCP).</li>
+                                <li>Leveraged strong analytical and problem-solving skills to troubleshoot and resolve issues independently.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Skills, Certs, Edu -->
+            <div class="space-y-12">
+                <!-- Summary -->
+                <div>
+                     <h3 class="text-3xl font-bold text-gray-900 mb-4 border-b-2 border-blue-500 pb-2">Professional Summary</h3>
+                     <div class="bg-white p-6 rounded-lg shadow-md">
+                         <p class="text-gray-700 leading-relaxed">
+                            A highly analytical support professional with over 7 years of experience in fast-paced financial services environments. Specializes in delivering high-quality technical support to end-users and C-Suite executives, with comprehensive knowledge of Windows-based systems, Microsoft Office Suite, Active Directory, and ServiceNow. Proven ability to troubleshoot a wide range of issues from enterprise applications to personal home technology, ensuring seamless operational readiness.
+                         </p>
+                     </div>
+                </div>
+
+                <!-- Skills -->
+                <div>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-4 border-b-2 border-blue-500 pb-2">Core Competencies</h3>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="font-semibold text-lg mb-3 text-blue-700">Key Technologies</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Windows 11/10</span>
+                            <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">ServiceNow</span>
+                            <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Active Directory</span>
+                             <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">M365 Office Suite</span>
+                            <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Okta SSO</span>
+                             <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">RSA MFA</span>
+                            <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">SCCM & Intune</span>
+                             <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Citrix</span>
+                            <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">DNS/DHCP</span>
+                            <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Videoconferencing</span>
+                        </div>
+                        <h4 class="font-semibold text-lg mt-6 mb-3 text-blue-700">Key Strengths</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Executive & VIP Support</span>
+                            <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Analytical Problem-Solving</span>
+                             <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">ITIL Incident Management</span>
+                            <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Cross-Functional Collaboration</span>
+                             <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Home/Personal Tech Support</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-4 border-b-2 border-blue-500 pb-2">Certifications</h3>
+                    <div class="bg-white p-6 rounded-lg shadow-md space-y-3">
+                         <p class="text-gray-700">Project Management Professional (PMP)</p>
+                         <p class="text-gray-700">ITIL v4 Foundation</p>
+                         <p class="text-gray-700">Google AI Essentials</p>
+                         <p class="text-gray-700">Certified Scrum Product Owner (CSPO)</p>
+                         <p class="text-gray-700">Microsoft Certified: Azure Fundamentals</p>
+                         <p class="text-gray-700">Microsoft 365 Certified</p>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-4 border-b-2 border-blue-500 pb-2">Education</h3>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="font-semibold text-lg text-blue-700">Herbert H. Lehman College</h4>
+                        <p class="text-gray-600">Bachelor of Science, Computer Information Systems</p>
+                        <p class="text-sm text-gray-500">104 Credits Completed</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const jobItems = document.querySelectorAll('.job-item');
+
+            jobItems.forEach(item => {
+                const header = item.querySelector('.job-header');
+                const details = item.querySelector('.job-details');
+                const parent = header.parentElement;
+
+                header.addEventListener('click', () => {
+                    // Toggle the 'open' class on the details
+                    details.classList.toggle('open');
+                    
+                    // Toggle an 'open' class on the parent for styling the header if needed
+                    parent.classList.toggle('open');
+                });
+            });
+
+            // Automatically open the first job item by default
+            const firstJobItem = document.querySelector('.job-item');
+            if (firstJobItem) {
+                firstJobItem.querySelector('.job-details').classList.add('open');
+                firstJobItem.classList.add('open');
+            }
+        });
+    </script>
+</body>
+</html>
